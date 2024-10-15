@@ -1,0 +1,20 @@
+{
+  "tasks": {
+    "dev": "deno run -A --unstable-kv --env --watch ./src/main.tsx & deno task dev:css",
+    "dev:css": "tailwindcss -i ./client/input.css -o ./public/styles.css --watch",
+    "build": "deno run --allow-read --allow-write --unstable --watch ./src/main.tsx && tailwindcss -i ./client/input.css -o ./dist/styles.css --minify --unstable-kv",
+    "review": "deno run --allow-net --allow-read ./src/main.tsx"
+  },
+  "imports": {
+    "@deno/kv-oauth": "jsr:@deno/kv-oauth@^0.11.0",
+    "@hono/hono": "jsr:@hono/hono@^4.6.4",
+    "@std/assert": "jsr:@std/assert@1",
+    "daisyui": "npm:daisyui@^4.12.13",
+    "tailwindcss": "npm:tailwindcss@^3.4.13",
+    "typed-htmx": "npm:typed-htmx@^0.3.1"
+  },
+  "compilerOptions": {
+    "jsx": "precompile",
+    "jsxImportSource": "@hono/hono/jsx"
+  }
+}
